@@ -14,6 +14,8 @@
     <ItemGroup>
       <ProjectReference Include="..\src\TektonChallenge.Core\TektonChallenge.Core.csproj" />
       <ProjectReference Include="..\src\TektonChallenge.Infrastructure\TektonChallenge.Infrastructure.csproj" />
+      <ProjectReference Include="..\TektonChallenge.Core\TektonChallenge.Core.csproj" />
+      <ProjectReference Include="..\TektonChallenge.Infrastructure\TektonChallenge.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
