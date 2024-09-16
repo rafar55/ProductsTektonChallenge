@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Core", "src\TektonChallenge.Core\TektonChallenge.Core.csproj", "{434439FA-4509-457E-B1EB-CA318F3E5D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Infrastructure", "src\TektonChallenge.Infrastructure\TektonChallenge.Infrastructure.csproj", "{0A8EFC4D-E722-45D8-8207-569C7BD4706B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Api", "src\TektonChallenge.Api\TektonChallenge.Api.csproj", "{11DEED39-5970-48F3-8D09-D01CAD7A36FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{434439FA-4509-457E-B1EB-CA318F3E5D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434439FA-4509-457E-B1EB-CA318F3E5D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434439FA-4509-457E-B1EB-CA318F3E5D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434439FA-4509-457E-B1EB-CA318F3E5D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11DEED39-5970-48F3-8D09-D01CAD7A36FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DEED39-5970-48F3-8D09-D01CAD7A36FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DEED39-5970-48F3-8D09-D01CAD7A36FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DEED39-5970-48F3-8D09-D01CAD7A36FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
