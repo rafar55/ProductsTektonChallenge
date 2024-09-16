@@ -12,7 +12,7 @@ using TektonChallenge.Infrastructure.Persistence;
 namespace TektonChallenge.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240916043230_InitialMig")]
+    [Migration("20240916045149_InitialMig")]
     partial class InitialMig
     {
         /// <inheritdoc />
