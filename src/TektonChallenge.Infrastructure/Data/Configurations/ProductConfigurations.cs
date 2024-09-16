@@ -10,12 +10,16 @@ internal class ProductConfigurations : IEntityTypeConfiguration<Product>
     public void Configure(EntityTypeBuilder<Product> builder)
     {
         builder.HasKey(x => x.ProductId);
-        
+
         builder.Property(x => x.ProductId)
             .HasMaxLength(26)
             .HasConversion<UlidToStringConverter>()
             .IsRequired();
-        
+
+        builder.Property(x => x.Name)
+            .HasMaxLength(250)
+            .IsRequired();
+
         builder
             .Property(x => x.Description)
             .HasMaxLength(500)
@@ -27,6 +31,9 @@ internal class ProductConfigurations : IEntityTypeConfiguration<Product>
 
         builder.Property(x => x.Stock)
             .HasDefaultValue(0);
-        
+
+        builder.Property(x => x.CreatedAt)
+            .HasDefaultValueSql("SYSDATETIMEOFFSET()")
+            .IsRequired();
     }
 }
