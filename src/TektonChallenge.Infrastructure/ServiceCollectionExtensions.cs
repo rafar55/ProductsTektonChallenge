@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using TektonChallenge.Core.Common.Persistence;
 using TektonChallenge.Core.Products.Repostories;
-using TektonChallenge.Infrastructure.Data;
-using TektonChallenge.Infrastructure.Data.Repositories;
+using TektonChallenge.Infrastructure.Persistence;
+using TektonChallenge.Infrastructure.Persistence.Repositories;
 
 namespace TektonChallenge.Infrastructure;
 
@@ -13,6 +14,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<AppDbContext>(options => { options.UseSqlServer(connectionString); },
             contextLifetime: ServiceLifetime.Scoped);
 
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        
         services.AddScoped<IProductRepository, ProductRepository>();
 
         return services;

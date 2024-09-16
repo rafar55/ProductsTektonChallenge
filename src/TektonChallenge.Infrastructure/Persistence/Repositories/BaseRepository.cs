@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using TektonChallenge.Core.Common.Data;
+using TektonChallenge.Core.Common.Persistence;
 
-namespace TektonChallenge.Infrastructure.Data.Repositories;
+namespace TektonChallenge.Infrastructure.Persistence.Repositories;
 
 internal abstract class BaseRepository<TEntity> : IRepository<TEntity> 
     where TEntity : class

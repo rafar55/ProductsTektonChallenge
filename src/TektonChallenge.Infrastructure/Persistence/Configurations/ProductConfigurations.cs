@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TektonChallenge.Core.Products.Models;
-using TektonChallenge.Infrastructure.Data.Converters;
+using TektonChallenge.Infrastructure.Persistence.Converters;
 
-namespace TektonChallenge.Infrastructure.Data.Configurations;
+namespace TektonChallenge.Infrastructure.Persistence.Configurations;
 
 internal class ProductConfigurations : IEntityTypeConfiguration<Product>
 {

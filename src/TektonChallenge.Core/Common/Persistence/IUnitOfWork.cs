@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace TektonChallenge.Core.Common.Data;
+namespace TektonChallenge.Core.Common.Persistence;
 
 public interface IUnitOfWork
 {

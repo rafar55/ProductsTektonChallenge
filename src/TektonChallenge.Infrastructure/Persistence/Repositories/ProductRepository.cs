@@ -1,7 +1,7 @@
 using TektonChallenge.Core.Products.Models;
 using TektonChallenge.Core.Products.Repostories;
 
-namespace TektonChallenge.Infrastructure.Data.Repositories;
+namespace TektonChallenge.Infrastructure.Persistence.Repositories;
 
 internal class ProductRepository : BaseRepository<Product>, IProductRepository
 {

@@ -1,4 +1,4 @@
-namespace TektonChallenge.Core.Common.Data;
+namespace TektonChallenge.Core.Common.Persistence;
 
 public interface IRepository<TEntity>
     where TEntity : class

@@ -11,6 +11,8 @@ public static class ServiceCollectionExtensions
         {
             options.RegisterServicesFromAssemblyContaining<AddProductCommand>();
         });
+        
+        services.AddSingleton<TimeProvider>(TimeProvider.System);
 
         return services;
     }

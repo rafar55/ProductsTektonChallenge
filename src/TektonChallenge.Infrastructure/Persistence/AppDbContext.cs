@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TektonChallenge.Core.Products.Models;
-using TektonChallenge.Infrastructure.Data.Repositories;
+using TektonChallenge.Infrastructure.Persistence.Repositories;
 
-namespace TektonChallenge.Infrastructure.Data;
+namespace TektonChallenge.Infrastructure.Persistence;
 
 public class AppDbContext : DbContext
 {

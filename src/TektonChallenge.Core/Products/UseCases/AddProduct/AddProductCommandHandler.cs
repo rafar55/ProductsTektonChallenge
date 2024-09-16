@@ -1,5 +1,5 @@
 using MediatR;
-using TektonChallenge.Core.Common.Data;
+using TektonChallenge.Core.Common.Persistence;
 using TektonChallenge.Core.Products.Models;
 using TektonChallenge.Core.Products.Repostories;
 
