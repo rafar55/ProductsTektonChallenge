@@ -4,6 +4,8 @@ using Serilog;
 using TektonChallenge.Core;
 using TektonChallenge.Infrastructure;
 using TektonChallenge.Infrastructure.Persistence;
+using Hellang.Middleware.ProblemDetails;
+using TektonChallenge.Api.Extensions;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -27,6 +29,13 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+    builder.Services.AddProblemDetails(options =>
+    {
+        options.IncludeExceptionDetails = (ctx, ex) => builder.Environment.IsDevelopment();
+        options.MapFluentValidation();
+        options.MapFanaticsExceptions();
+    });
+    
     builder.Services.AddRouting(options => { options.LowercaseUrls = true; });
     builder.Services
         .AddControllers()
@@ -45,6 +54,7 @@ try
     }
 
     app.UseHttpsRedirection();
+    app.UseProblemDetails();
     
     app.MapControllers();
 
