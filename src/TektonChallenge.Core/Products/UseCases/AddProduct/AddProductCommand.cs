@@ -5,7 +5,6 @@ namespace TektonChallenge.Core.Products.UseCases.AddProduct;
 
 public record AddProductCommand : IRequest<Ulid>
 {
-    public required Ulid ProductId { get; set; }
     public required string Name { get; set; }
     public required StatusEnum Status { get; set; }
     public required int Stock { get; set; }

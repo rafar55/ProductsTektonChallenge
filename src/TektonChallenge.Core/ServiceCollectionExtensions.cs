@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using TektonChallenge.Core.Products.UseCases.AddProduct;
 
@@ -11,6 +12,8 @@ public static class ServiceCollectionExtensions
         {
             options.RegisterServicesFromAssemblyContaining<AddProductCommand>();
         });
+
+        services.AddValidatorsFromAssemblyContaining<AddProductCommandValidator>();
         
         services.AddSingleton<TimeProvider>(TimeProvider.System);
 
