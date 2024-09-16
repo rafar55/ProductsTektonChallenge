@@ -4,7 +4,7 @@ using TektonChallenge.Core.Exceptions;
 using ProblemDetailsOptions = Hellang.Middleware.ProblemDetails.ProblemDetailsOptions;
 
 
-namespace TektonChallenge.Api.Extensions;
+namespace TektonChallenge.Api.Common.Extensions;
 
 public static class ProblemDetailExtensions
 {

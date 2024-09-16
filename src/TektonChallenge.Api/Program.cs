@@ -5,7 +5,8 @@ using TektonChallenge.Core;
 using TektonChallenge.Infrastructure;
 using TektonChallenge.Infrastructure.Persistence;
 using Hellang.Middleware.ProblemDetails;
-using TektonChallenge.Api.Extensions;
+using TektonChallenge.Api.Common.Extensions;
+using TektonChallenge.Api.Common.Swagger;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -27,11 +28,14 @@ try
         .AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection")!);
 
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    builder.Services.AddSwaggerGen(options =>
+    {
+        options.SchemaFilter<UlidSchemaFilter>();
+    });
 
     builder.Services.AddProblemDetails(options =>
     {
-        options.IncludeExceptionDetails = (ctx, ex) => builder.Environment.IsDevelopment();
+        options.IncludeExceptionDetails = (ctx, ex) => false;
         options.MapFluentValidation();
         options.MapFanaticsExceptions();
     });

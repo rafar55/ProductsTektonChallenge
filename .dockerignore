@@ -1,4 +1,5 @@
-﻿**/docker-data
+﻿**/logs
+**/docker-data
 **/.dockerignore
 **/.env
 **/.git

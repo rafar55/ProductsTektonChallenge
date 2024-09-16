@@ -3,7 +3,7 @@ using TektonChallenge.Core.Products.Models;
 
 namespace TektonChallenge.Core.Products.UseCases.AddProduct;
 
-public class AddProductCommandValidator : AbstractValidator<Product>
+public class AddProductCommandValidator : AbstractValidator<AddProductCommand>
 {
     public AddProductCommandValidator()
     {
