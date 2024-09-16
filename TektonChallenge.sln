@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Core", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Infrastructure", "src\TektonChallenge.Infrastructure\TektonChallenge.Infrastructure.csproj", "{0A8EFC4D-E722-45D8-8207-569C7BD4706B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Api", "TektonChallenge.Api\TektonChallenge.Api.csproj", "{FF81960C-EB58-4B0C-8873-3C9FE89628CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TektonChallenge.Api", "src\TektonChallenge.Api\TektonChallenge.Api.csproj", "{A7D14284-E510-4D48-8575-2285206126BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8EFC4D-E722-45D8-8207-569C7BD4706B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF81960C-EB58-4B0C-8873-3C9FE89628CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF81960C-EB58-4B0C-8873-3C9FE89628CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF81960C-EB58-4B0C-8873-3C9FE89628CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF81960C-EB58-4B0C-8873-3C9FE89628CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D14284-E510-4D48-8575-2285206126BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D14284-E510-4D48-8575-2285206126BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D14284-E510-4D48-8575-2285206126BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D14284-E510-4D48-8575-2285206126BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
