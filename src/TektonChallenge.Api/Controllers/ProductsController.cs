@@ -2,6 +2,7 @@ using System.Net;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using TektonChallenge.Api.Contracts.Products;
 using TektonChallenge.Core.Products.Models;
 using TektonChallenge.Core.Products.UseCases.AddProduct;
 using TektonChallenge.Core.Products.UseCases.GetProductById;
@@ -23,42 +24,45 @@ public class ProductsController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IEnumerable<Product>> GetProducts(string? search, StatusEnum? status)
+    public async Task<IEnumerable<ProductResponse>> GetProducts(string? search, StatusEnum? status)
     {
         var query = new GetProductsQuery(search, status);
-        return await _mediator.Send(query);
+        var products = await _mediator.Send(query);
+        return products.ToResponse();
     }
     
     [HttpGet("{productId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<Product>> GetProduct([FromRoute] Ulid productId)
+    public async Task<ActionResult<ProductResponse>> GetProduct([FromRoute] Ulid productId)
     {
         var query = new GetProductByIdQuery(productId);
-        return await _mediator.Send(query);
+        var product = await _mediator.Send(query);
+        return product.ToResponse();
     }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<Product>> CreateProduct([FromBody] AddProductCommand command)
+    public async Task<ActionResult<ProductResponse>> CreateProduct([FromBody] ProductRequest request)
     {
-        var productId = await _mediator.Send(command);
+        var productId = await _mediator.Send(request.ToAddCommand());
         var createdProduct = await _mediator.Send(new GetProductByIdQuery(productId));
         return CreatedAtAction(
             nameof(GetProduct),
             new { productId = createdProduct.ProductId },
-            createdProduct);
+            createdProduct.ToResponse());
     }
     
     [HttpPut("{productId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<Product>> UpdateProduct([FromRoute] Ulid productId, [FromBody] UpdateProductCommand command)
+    public async Task<ActionResult<ProductResponse>> UpdateProduct([FromRoute] Ulid productId, [FromBody] ProductRequest request)
     {
-        command.ProductId = productId;
-        await _mediator.Send(command);
-        return await _mediator.Send(new GetProductByIdQuery(productId));
+        var updateCommand = request.ToUpdateCommand(productId);
+        await _mediator.Send(updateCommand);
+        var updatedProduct = await _mediator.Send(new GetProductByIdQuery(productId));
+        return updatedProduct.ToResponse();
     }
 }
