@@ -24,7 +24,7 @@ public class ProductsController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IEnumerable<ProductResponse>> GetProducts(string? search, StatusEnum? status)
+    public async Task<IEnumerable<ProductListResponse>> GetProducts(string? search, StatusEnum? status)
     {
         var query = new GetProductsQuery(search, status);
         var products = await _mediator.Send(query);
@@ -34,7 +34,7 @@ public class ProductsController : ControllerBase
     [HttpGet("{productId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ProductResponse>> GetProduct([FromRoute] Ulid productId)
+    public async Task<ActionResult<ProductDetailResponse>> GetProduct([FromRoute] Ulid productId)
     {
         var query = new GetProductByIdQuery(productId);
         var product = await _mediator.Send(query);
@@ -44,7 +44,7 @@ public class ProductsController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ProductResponse>> CreateProduct([FromBody] ProductRequest request)
+    public async Task<ActionResult<ProductDetailResponse>> CreateProduct([FromBody] ProductRequest request)
     {
         var productId = await _mediator.Send(request.ToAddCommand());
         var createdProduct = await _mediator.Send(new GetProductByIdQuery(productId));
@@ -58,7 +58,7 @@ public class ProductsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ProductResponse>> UpdateProduct([FromRoute] Ulid productId, [FromBody] ProductRequest request)
+    public async Task<ActionResult<ProductDetailResponse>> UpdateProduct([FromRoute] Ulid productId, [FromBody] ProductRequest request)
     {
         var updateCommand = request.ToUpdateCommand(productId);
         await _mediator.Send(updateCommand);

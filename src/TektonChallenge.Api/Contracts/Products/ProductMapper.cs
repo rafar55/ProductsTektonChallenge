@@ -1,5 +1,6 @@
 using TektonChallenge.Core.Products.Models;
 using TektonChallenge.Core.Products.UseCases.AddProduct;
+using TektonChallenge.Core.Products.UseCases.GetProductById;
 using TektonChallenge.Core.Products.UseCases.UpdateProduct;
 
 namespace TektonChallenge.Api.Contracts.Products;
@@ -31,9 +32,9 @@ public static class ProductMapper
         };
     }
     
-    public static ProductResponse ToResponse(this Product model)
+    public static ProductListResponse ToResponse(this Product model)
     {
-        return new ProductResponse
+        return new ProductListResponse()
         {
             Id = model.ProductId,
             Name = model.Name,
@@ -44,7 +45,22 @@ public static class ProductMapper
         };
     }
     
-    public static IEnumerable<ProductResponse> ToResponse(this IEnumerable<Product> models)
+    public static ProductDetailResponse ToResponse(this ProductWithDiscount model)
+    {
+        return new ProductDetailResponse()
+        {
+            Id = model.ProductId,
+            Name = model.Name,
+            StatusName = model.Status.ToString(),
+            Stock = model.Stock,
+            Description = model.Description,
+            Price = model.Price,
+            Discount = model.DiscountPercentage ?? 0,
+            FinalPrice = model.PriceWithDiscount
+        };
+    }
+    
+    public static IEnumerable<ProductListResponse> ToResponse(this IEnumerable<Product> models)
     {
         return models.Select(ToResponse);
     }

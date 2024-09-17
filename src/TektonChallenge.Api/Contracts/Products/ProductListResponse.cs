@@ -1,6 +1,6 @@
 namespace TektonChallenge.Api.Contracts.Products;
 
-public record ProductResponse
+public record ProductListResponse
 {
     public Ulid Id { get; init; }
     public required string Name { get; init; }

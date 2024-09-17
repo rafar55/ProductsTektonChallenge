@@ -9,6 +9,6 @@ public record DiscountData
 
     public required string ProductId { get; init; }
 
-    [JsonPropertyName("percentage")]
+    [JsonPropertyName("discountPercentage")]
     public required decimal Percentage { get; init; }
 }
