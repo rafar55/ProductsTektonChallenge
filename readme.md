@@ -65,6 +65,12 @@ dotnet run --project src/Api/Api.csproj
 
 The project will start and create and seed the database with some initial data.
 
+## Ulid as Primary Key
+I used ULID for the keys of the products. ULID is a 128-bit compatible with UUID/GUID. It is designed to be used as a primary key in databases.
+It is sortable and has a timestamp component that can be used to sort the keys by creation date.
+
+You can find more information about ULID [here](https://dev.to/nejos97/what-is-ulid-and-why-should-you-start-using-it-14j9)
+
 ## Logging
 This project use Serilog for logging. The logs are written to the console and to a file. You can find the logs in the `logs` folder in the root directory of the project.
 I didn't have time to log the execution time of the requests, but this can be easily added by adding a middleware that logs the request time.
@@ -77,3 +83,9 @@ I didn't implement the cache for product status since in my opinion it's not nec
 having a cache for discount is a more real use case.
 
 Unit tests were not written for this project due to time constraints. But I would have written unit tests the use cases and services in the Core and Infrastructure layers.
+
+
+## Libraries Used
+* [MediatR]
+* [Entity Framework Core]
+* [Serilog]
