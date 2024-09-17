@@ -1,4 +1,5 @@
 using FluentValidation;
+using TektonChallenge.Core.Products.Models;
 
 namespace TektonChallenge.Core.Products.UseCases.UpdateProduct;
 
@@ -18,7 +19,8 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
             .MaximumLength(500);
         
         RuleFor(x => x.Status)
-            .IsInEnum();
+            .NotEmpty()
+            .IsEnumName(typeof(StatusEnum), caseSensitive: false);
         
         RuleFor(x => x.Price)
             .NotEmpty()

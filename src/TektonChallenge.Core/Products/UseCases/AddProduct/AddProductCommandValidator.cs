@@ -24,6 +24,7 @@ public class AddProductCommandValidator : AbstractValidator<AddProductCommand>
             .GreaterThanOrEqualTo(0);
 
         RuleFor(x => x.Status)
-            .IsInEnum();
+            .NotEmpty()
+            .IsEnumName(typeof(StatusEnum), caseSensitive: false);
     }
 }

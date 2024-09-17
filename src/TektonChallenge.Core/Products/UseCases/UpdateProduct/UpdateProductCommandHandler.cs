@@ -2,6 +2,7 @@ using FluentValidation;
 using MediatR;
 using TektonChallenge.Core.Common.Persistence;
 using TektonChallenge.Core.Exceptions;
+using TektonChallenge.Core.Products.Models;
 using TektonChallenge.Core.Products.Repostories;
 
 namespace TektonChallenge.Core.Products.UseCases.UpdateProduct;
@@ -33,7 +34,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
         product.Name = request.Name;
         product.Price = request.Price;
         product.Stock = request.Stock;
-        product.Status = request.Status;
+        product.Status = Enum.Parse<StatusEnum>(request.Status); 
 
         await _unitOfWork.CommitAsync(cancellationToken);
     }

@@ -34,7 +34,7 @@ public class AddProductCommandHandler : IRequestHandler<AddProductCommand, Ulid>
             Description = request.Description,
             Price = request.Price,
             Stock = request.Stock,
-            Status = request.Status,
+            Status = Enum.Parse<StatusEnum>(request.Status),
             CreatedAt = _timeProvider.GetUtcNow()
         };
         await repository.AddAsync(model, cancellationToken);
