@@ -22,5 +22,8 @@ public class AddProductCommandValidator : AbstractValidator<AddProductCommand>
         RuleFor(x => x.Stock)
             .NotEmpty()
             .GreaterThanOrEqualTo(0);
+
+        RuleFor(x => x.Status)
+            .IsInEnum();
     }
 }
