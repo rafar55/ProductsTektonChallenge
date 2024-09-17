@@ -12,6 +12,6 @@ public record ProductWithDiscount
     public required decimal Price { get; init; }
     public DateTimeOffset? CreatedAt { get; init; }
     public required decimal? DiscountPercentage { get; init; }
-    public decimal DiscountAmount => Price * (DiscountPercentage ?? 0);
+    public decimal DiscountAmount => Price * (DiscountPercentage / 100 ?? 0);
     public decimal PriceWithDiscount => Price - DiscountAmount;
 }
