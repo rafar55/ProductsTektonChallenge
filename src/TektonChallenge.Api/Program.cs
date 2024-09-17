@@ -23,9 +23,11 @@ try
         .Enrich.FromLogContext()
         .WriteTo.Console());
 
+    var dbConnectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
+    var discountServiceBaseUrl = builder.Configuration["DiscountService:BaseUrl"]!;
     builder.Services
         .AddCore()
-        .AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection")!);
+        .AddInfrastructure(dbConnectionString, discountServiceBaseUrl);
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(options =>
